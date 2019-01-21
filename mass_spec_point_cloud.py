@@ -1,7 +1,4 @@
 import numpy as np
-import pyopenms as ms
-
-from scipy.spatial import ckdtree
 
 class MassSpecDataPoint:
     def __init__(self, mz, rt, dt, intensity):
