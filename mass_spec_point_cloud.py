@@ -31,7 +31,7 @@ class MassSpecDataPointCloud:
         self.data = data
         
     def get_points_array(self):
-        if not self.points_array:
+        if self.points_array.size == 0:
             self.points_array = np.array(
                 [point.get_array() for point in self.data])
 
@@ -48,9 +48,9 @@ class MassSpecDataPointCloud:
     def get_mz_dt_and_rt_bounded_points_array(self,
                                               lower_left,
                                               upper_right):
-        pts = self.get_points_array()
+        xyz_pts = self.get_points_array()[:, [0, 1, 2]]
         in_idx = np.all(
-            (lower_left <= pts) & (pts <= upper_right), axis=1)
-        in_box = pts[in_idx]
+            (lower_left <= xyz_pts) & (xyz_pts <= upper_right), axis=1)
+        in_box = self.get_points_array()[in_idx]
 
         return in_box
