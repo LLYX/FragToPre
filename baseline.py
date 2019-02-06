@@ -262,7 +262,7 @@ def link_between_frames(feature_maps, rt_idx_to_rt, mz_epsilon, im_epsilon):
 
     return possible_species
 
-def fit_gaussian_to_feature():
+def fit_gaussian_to_feature(feature):
     pass
     
 def split_precursors_and_fragments(
